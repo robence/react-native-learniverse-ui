@@ -6,16 +6,35 @@ import {
   KeyboardAvoidingView,
   Text,
 } from 'react-native';
-import { Colors } from '../constants';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-export default function HomeScreen() {
+import { Colors } from '../constants';
+import type { RootStackParamList } from '../navigation/HomeNavigator';
+
+type HomeScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'HomeScreen'
+>;
+
+type HomeProps = {
+  navigation: HomeScreenNavigationProp;
+};
+
+export default function HomeScreen({ navigation }: HomeProps) {
+  const onTouch = () => {
+    navigation.navigate('DashboardScreen');
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.keyboard}
       behavior="padding"
       keyboardVerticalOffset={100}
     >
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        onTouchEnd={onTouch}
+      >
         <View style={styles.center}>
           <Text style={styles.title}>Welcome to Learniverse!</Text>
         </View>

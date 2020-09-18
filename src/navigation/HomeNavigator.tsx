@@ -2,14 +2,20 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import { HomeScreen } from '../screens';
+import { DashboardScreen, HomeScreen } from '../screens';
 
-const Stack = createStackNavigator();
+export type RootStackParamList = {
+  HomeScreen: undefined;
+  DashboardScreen: undefined;
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 function HomeNavigator() {
   return (
     <Stack.Navigator initialRouteName="HomeScreen" headerMode="none">
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
     </Stack.Navigator>
   );
 }
