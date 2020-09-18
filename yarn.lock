@@ -1005,6 +1005,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@expo-google-fonts/work-sans@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/work-sans/-/work-sans-0.1.0.tgz#0839fe0b6cd9772db6227b21d22d7fe3450ef4ef"
+  integrity sha512-c24HquTDQlWjRGjEy8ZZoDEiKD8HNoiKDq+1vtZDAIhLbop0kqggbH+0FFWKigpID2tjABBlJg4MKo4iMKaRiQ==
+
 "@expo/configure-splash-screen@0.1.13":
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/@expo/configure-splash-screen/-/configure-splash-screen-0.1.13.tgz#9f974146d716ffc03461e4d2deb7bfb22826e56a"

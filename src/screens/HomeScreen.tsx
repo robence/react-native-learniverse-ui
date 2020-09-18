@@ -16,7 +16,7 @@ export default function HomeScreen() {
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.center}>
-          <Text>Welcome to Learniverse!</Text>
+          <Text style={styles.title}>Welcome to Learniverse!</Text>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -34,5 +34,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  title: {
+    fontFamily: 'WorkSans_700Bold',
+    fontSize: 32,
   },
 });
