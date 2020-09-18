@@ -7,12 +7,14 @@ import { HomeNavigator } from './src/navigation/';
 import { AppLoading } from 'expo';
 import {
   useFonts,
+  WorkSans_500Medium,
   WorkSans_600SemiBold,
   WorkSans_700Bold,
 } from '@expo-google-fonts/work-sans';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
+    WorkSans_500Medium,
     WorkSans_600SemiBold,
     WorkSans_700Bold,
   });

@@ -6,6 +6,7 @@ import {
   KeyboardAvoidingView,
   Text,
 } from 'react-native';
+import { Colors } from '../constants';
 
 export default function HomeScreen() {
   return (
@@ -26,6 +27,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   keyboard: {
     flex: 1,
+    backgroundColor: 'gray',
   },
   scrollContainer: {
     flex: 1,
@@ -36,6 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
+    color: Colors.primary,
     fontFamily: 'WorkSans_700Bold',
     fontSize: 32,
   },
