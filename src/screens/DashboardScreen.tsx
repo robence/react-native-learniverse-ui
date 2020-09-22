@@ -34,11 +34,10 @@ const styles = StyleSheet.create({
   },
   center: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
   title: {
     fontFamily: 'WorkSans_700Bold',
-    fontSize: 22,
+    fontSize: 28,
   },
 });
