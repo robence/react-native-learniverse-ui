@@ -13,7 +13,7 @@ import {
 } from '@expo-google-fonts/work-sans';
 
 export default function App() {
-  let [fontsLoaded] = useFonts({
+  const [fontsLoaded] = useFonts({
     WorkSans_500Medium,
     WorkSans_600SemiBold,
     WorkSans_700Bold,

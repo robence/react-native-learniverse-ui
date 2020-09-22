@@ -1,7 +1,6 @@
 {
   "expo": {
     "name": "learniverse-ui",
-    "displayName": "Learniverse",
     "slug": "learniverse-ui",
     "version": "1.0.0",
     "orientation": "portrait",
