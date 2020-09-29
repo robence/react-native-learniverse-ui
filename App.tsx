@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { HomeNavigator } from './src/navigation/';
 import { AppLoading } from 'expo';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
   useFonts,
   WorkSans_500Medium,
@@ -24,9 +25,11 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <StatusBar style="auto" />
-      <HomeNavigator />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        <HomeNavigator />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }

@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { DashboardScreen, HomeScreen } from '../screens';
+import Header from '../components/Header';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
@@ -13,9 +14,17 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 function HomeNavigator() {
   return (
-    <Stack.Navigator initialRouteName="HomeScreen" headerMode="none">
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
+    <Stack.Navigator initialRouteName="HomeScreen" headerMode="screen">
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="DashboardScreen"
+        component={DashboardScreen}
+        options={{ header: () => <Header /> }}
+      />
     </Stack.Navigator>
   );
 }

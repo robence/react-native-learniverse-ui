@@ -1,38 +1,23 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  KeyboardAvoidingView,
-  Text,
-} from 'react-native';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
 
 export default function DashboardScreen() {
   return (
-    <KeyboardAvoidingView
-      style={styles.keyboard}
-      behavior="padding"
-      keyboardVerticalOffset={100}
-    >
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.center}>
-          <Text style={styles.title}>Status</Text>
-          <Text style={styles.title}>Courses</Text>
-          <Text style={styles.title}>Daily Challenge</Text>
-        </View>
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.layout}>
+        <Text style={styles.title}>Status</Text>
+        <Text style={styles.title}>Courses</Text>
+        <Text style={styles.title}>Daily Challenge</Text>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  keyboard: {
+  container: {
     flex: 1,
   },
-  scrollContainer: {
-    flex: 1,
-  },
-  center: {
+  layout: {
     flex: 1,
     justifyContent: 'space-evenly',
   },
