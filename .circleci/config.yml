@@ -12,14 +12,17 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: yarn-install
+          name: Yarn install
           command: yarn
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
-          name: lint
+          name: Install Expo CLI
+          command: npm install -g expo-cli
+      - run:
+          name: Lint project files
           command: yarn lint
       - run:
           name: Login into Expo and publish to staging
