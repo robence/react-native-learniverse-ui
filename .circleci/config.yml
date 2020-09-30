@@ -20,12 +20,12 @@ jobs:
             - ./node_modules
       - run:
           name: Install Expo CLI
-          command: npm install -g expo-cli
+          command: yarn global add expo-cli
       - run:
           name: Lint project files
           command: yarn lint
       - run:
           name: Login into Expo and publish to staging
           command: |
-            npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
-            npx expo publish --non-interactive --max-workers 1 --release-channel testing
+            expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
+            expo publish --non-interactive --max-workers 1 --release-channel testing
