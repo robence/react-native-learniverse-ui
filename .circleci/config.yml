@@ -21,3 +21,8 @@ jobs:
       - run:
           name: lint
           command: yarn lint
+      - run:
+          name: Login into Expo and publish to staging
+          command: |
+            npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
+            npx expo publish --non-interactive --max-workers 1 --release-channel testing
