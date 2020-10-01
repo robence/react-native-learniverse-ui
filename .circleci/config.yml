@@ -1,27 +1,53 @@
 version: 2.1
+
+publish: &publish
+  working_directory: ~/my-app
+  docker:
+    - image: cimg/node:12.18
+  steps:
+    - checkout
+    - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+    - run:
+        name: Yarn install
+        command: yarn
+    - save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+          - ./node_modules
+    - run:
+        name: Install Expo CLI
+        command: yarn global add expo-cli
+    - run:
+        name: Lint project files
+        command: yarn lint
+    - run:
+        name: Login into Expo
+        command: yarn expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
+    - run:
+        name: Publish to Expo
+        command: yarn expo publish --non-interactive --max-workers 1 --release-channel $EXPO_RELEASE_CHANNEL
+
 jobs:
-  build:
-    docker:
-      - image: cimg/node:12.18
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Yarn install
-          command: yarn
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Install Expo CLI
-          command: yarn global add expo-cli
-      - run:
-          name: Lint project files
-          command: yarn lint
-      - run:
-          name: Login into Expo and publish to staging
-          command: |
-            yarn expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
-            yarn expo publish --non-interactive --max-workers 1 --release-channel testing
+  publish_to_expo_dev:
+    environment:
+      EXPO_RELEASE_CHANNEL: testing
+    <<: *publish
+
+  publish_to_expo_prod:
+    environment:
+      EXPO_RELEASE_CHANNEL: default
+    <<: *publish
+
+workflows:
+  version: 2
+  my_app:
+    jobs:
+      - publish_to_expo_dev:
+          filters:
+            branches:
+              only: develop
+      - publish_to_expo_prod:
+          filters:
+            branches:
+              only: master
