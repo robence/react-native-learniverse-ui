@@ -46,7 +46,7 @@ export default function HomeScreen({ navigation }: HomeProps) {
 const styles = StyleSheet.create({
   keyboard: {
     flex: 1,
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
   },
   scrollContainer: {
     flex: 1,
