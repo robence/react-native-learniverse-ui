@@ -1,16 +1,32 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from '@react-navigation/stack';
+import {
+  createDrawerNavigator,
+  DrawerNavigationProp,
+} from '@react-navigation/drawer';
+import { CompositeNavigationProp } from '@react-navigation/native';
 
-import { DashboardScreen, HomeScreen } from '../screens';
 import Header from '../components/Header';
+import { DashboardScreen, HomeScreen } from '../screens';
 
-export type RootStackParamList = {
+export type StackParamList = {
   HomeScreen: undefined;
   DashboardScreen: undefined;
 };
 
-const Stack = createStackNavigator<RootStackParamList>();
+export type DrawerParamList = {
+  Home: undefined;
+};
+
+export type RootNavigationProp = CompositeNavigationProp<
+  DrawerNavigationProp<DrawerParamList, 'Home'>,
+  StackNavigationProp<StackParamList>
+>;
+
+const Stack = createStackNavigator<StackParamList>();
 
 function HomeNavigator() {
   return (
@@ -29,7 +45,7 @@ function HomeNavigator() {
   );
 }
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 export default function DrawerNavigator() {
   return (

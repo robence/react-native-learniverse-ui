@@ -6,18 +6,12 @@ import {
   KeyboardAvoidingView,
   Text,
 } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
 
 import { Colors } from '../constants';
-import type { RootStackParamList } from '../navigation/HomeNavigator';
-
-type HomeScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'HomeScreen'
->;
+import { RootNavigationProp } from '../navigation/HomeNavigator';
 
 type HomeProps = {
-  navigation: HomeScreenNavigationProp;
+  navigation: RootNavigationProp;
 };
 
 export default function HomeScreen({ navigation }: HomeProps) {
