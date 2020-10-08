@@ -8,6 +8,7 @@ import { AppLoading } from 'expo';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
   useFonts,
+  WorkSans_400Regular,
   WorkSans_500Medium,
   WorkSans_600SemiBold,
   WorkSans_700Bold,
@@ -15,6 +16,7 @@ import {
 
 export default function App() {
   const [fontsLoaded] = useFonts({
+    WorkSans_400Regular,
     WorkSans_500Medium,
     WorkSans_600SemiBold,
     WorkSans_700Bold,

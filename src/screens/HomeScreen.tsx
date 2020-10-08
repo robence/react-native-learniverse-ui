@@ -9,6 +9,7 @@ import {
 
 import { Colors } from '../constants';
 import { RootNavigationProp } from '../navigation/HomeNavigator';
+import { Planet } from '../svg';
 
 type HomeProps = {
   navigation: RootNavigationProp;
@@ -31,6 +32,7 @@ export default function HomeScreen({ navigation }: HomeProps) {
       >
         <View style={styles.center}>
           <Text style={styles.title}>Welcome to Learniverse!</Text>
+          <Planet />
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -40,7 +42,7 @@ export default function HomeScreen({ navigation }: HomeProps) {
 const styles = StyleSheet.create({
   keyboard: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.background,
   },
   scrollContainer: {
     flex: 1,
@@ -54,5 +56,6 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontFamily: 'WorkSans_700Bold',
     fontSize: 32,
+    marginBottom: 20,
   },
 });

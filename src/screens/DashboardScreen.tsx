@@ -48,16 +48,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   number: {
-    fontSize: 36,
+    fontSize: 32,
     fontFamily: 'WorkSans_700Bold',
   },
   label: {
     fontFamily: 'WorkSans_500Medium',
-    fontSize: 20,
+    fontSize: 18,
   },
 
   title: {
     fontFamily: 'WorkSans_700Bold',
-    fontSize: 28,
+    fontSize: 24,
   },
 });
