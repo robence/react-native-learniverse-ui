@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import { CourseList } from '../components/Course';
 
 export default function DashboardScreen() {
   return (
@@ -21,6 +22,7 @@ export default function DashboardScreen() {
           </View>
         </View>
         <Text style={styles.title}>Courses</Text>
+        <CourseList />
         <Text style={styles.title}>Daily Challenge</Text>
       </ScrollView>
     </View>
